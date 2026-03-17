@@ -6,8 +6,8 @@ This repository contains PDFs of my academic data science projects.
 
 ### Graduate Capstone
 Machine learning model to validate millions of address records for policy use.  
-[View PDF](Capstone.pdf)
+[View PDF](Graduate-Capstone.pdf)
 
 ### Undergraduate Thesis
 Statistical analysis of NBA player value using Python and R.  
-[View PDF](BrianKrikorianPARThesis.pdf)
+[View PDF](Undergraduate-Thesis.pdf)
