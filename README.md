@@ -6,7 +6,7 @@ This repository contains PDFs of my academic data science and analytics projects
 
 ### Graduate Capstone
 Machine learning model to process and validate millions of address records for the State of Connecticut Office of Policy and Management.  
-**Tools & Skills:** Python, Machine Learning, Data Transformation 
+**Tools & Skills:** Python, Machine Learning, Data Transformation, Power BI  
 [View PDF](Graduate-Capstone.pdf)
 
 ### Undergraduate Thesis
