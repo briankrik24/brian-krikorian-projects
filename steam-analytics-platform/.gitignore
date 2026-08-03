@@ -18,3 +18,8 @@ venv/
 
 # Data
 *.db
+
+# Data files
+data/bronze/
+data/silver/
+data/gold/
