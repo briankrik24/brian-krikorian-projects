@@ -1,28 +1,26 @@
-# Steam Analytics Platform
+# 🎮 Steam Analytics Platform
 
-An end-to-end Analytics Engineering project that transforms raw Steam game data into an analytics-ready dataset for SQL and Power BI reporting.
+An end-to-end analytics engineering project that transforms raw Steam game data into an analytics-ready dataset using a Medallion Architecture (Bronze → Silver → Gold), with automated profiling, data validation, and business-focused transformations.
 
-## Project Overview
-
-This project demonstrates a modern ELT pipeline using a Medallion Architecture (Bronze → Silver → Gold).
-
-The pipeline:
-
-- Downloads the latest Steam dataset from Kaggle
-- Stores raw source data in a Bronze layer
-- Profiles and validates raw data quality
-- Cleans and standardizes the dataset into a Silver layer
-- Validates transformation results
-- Builds an analytics-ready Gold layer *(in progress)*
-- Loads the final dataset into DuckDB for SQL analytics
-- Visualizes insights in Power BI
+The finished dataset is designed for SQL analytics and an interactive Power BI game discovery dashboard.
 
 ---
 
-# Architecture
+## Project Goals
+
+- Build a production-style ETL pipeline using Python and Pandas
+- Implement a Medallion Architecture
+- Validate data quality at every stage
+- Create an analytics-ready semantic layer
+- Load curated data into DuckDB
+- Build an interactive Power BI dashboard for exploring Steam games
+
+---
+
+## Project Architecture
 
 ```
-Kaggle Dataset
+Steam Dataset
       │
       ▼
 download_dataset.py
@@ -30,68 +28,20 @@ download_dataset.py
       ▼
 Bronze Layer
       │
-      ▼
-profile_bronze.py
-      │
-      ▼
-build_silver.py
-      │
+      ├── profile_bronze.py
       ▼
 Silver Layer
       │
+      ├── profile_silver.py
       ▼
-profile_silver.py
+Gold Layer
       │
-      ▼
-Gold Layer (In Progress)
-      │
+      ├── profile_gold.py
       ▼
 DuckDB
-      │
       ▼
-Power BI
+Power BI Dashboard
 ```
-
----
-
-# Current Status
-
-## ✅ Bronze Layer
-
-- Download Steam dataset from Kaggle
-- Store raw dataset
-- Profile data quality
-- Validate raw data integrity
-
-## ✅ Silver Layer
-
-- Remove unnecessary columns
-- Standardize schema
-- Rename analytics fields
-- Convert data types
-- Validate transformation
-- Profile transformed dataset
-
-## 🚧 Gold Layer
-
-Planned features:
-
-- Business-friendly metrics
-- Derived analytics columns
-- DuckDB warehouse
-- SQL analysis
-- Power BI dashboard
-
----
-
-# Pipeline Results
-
-| Layer | Rows | Columns | Memory |
-|-------|------:|--------:|-------:|
-| Bronze | 89,618 | 47 | 675 MB |
-| Silver | 89,618 | 30 | 59 MB |
-
-The Silver transformation preserves all game records while reducing memory usage by approximately **91%** through the removal of unnecessary text, URL, and metadata fields.
 
 ---
 
@@ -99,30 +49,96 @@ The Silver transformation preserves all game records while reducing memory usage
 
 ```
 steam-analytics-platform/
-
+│
 ├── data/
 │   ├── bronze/
 │   ├── silver/
 │   └── gold/
 │
 ├── docs/
-│   ├── data_dictionary.md
-│   └── silver_schema.md
+│   ├── silver_schema.md
+│   └── gold_schema.md
 │
 ├── src/
-│   ├── analysis/
-│   │   ├── profile_bronze.py
-│   │   └── profile_silver.py
-│   │
 │   ├── extract/
 │   │   └── download_dataset.py
 │   │
-│   └── transform/
-│       └── build_silver.py
+│   ├── transform/
+│   │   ├── build_silver.py
+│   │   └── build_gold.py
+│   │
+│   ├── analysis/
+│   │   ├── profile_bronze.py
+│   │   ├── profile_silver.py
+│   │   └── profile_gold.py
+│   │
+│   └── load/
 │
 ├── requirements.txt
-└── README.md
+├── README.md
+└── .gitignore
 ```
+
+---
+
+# ETL Pipeline
+
+## Bronze Layer
+
+Purpose:
+
+- Preserve the raw source dataset
+- Perform initial profiling
+- Detect missing values, duplicates, and schema issues
+
+Outputs:
+
+- Bronze dataset
+- Bronze profiling report
+
+---
+
+## Silver Layer
+
+Purpose:
+
+- Select required columns
+- Rename fields for consistency
+- Standardize data types
+- Validate cleaned data
+
+Outputs:
+
+- Clean analytics dataset
+- Silver profiling report
+
+---
+
+## Gold Layer
+
+Purpose:
+
+Create business-friendly features for analytics and reporting.
+
+Derived columns include:
+
+- Release Year
+- Release Month
+- Release Decade
+- Price Bucket
+- Review Category
+- Positive Review Percentage
+- Estimated Owner Midpoint
+- Estimated Owner Bucket
+- Average Playtime (Hours)
+- Playtime Bucket
+- Has Metacritic
+- Has Achievements
+
+Outputs:
+
+- Analytics-ready dataset
+- Gold profiling report
 
 ---
 
@@ -130,31 +146,58 @@ steam-analytics-platform/
 
 - Python
 - Pandas
-- KaggleHub
-- DuckDB *(planned)*
-- SQL *(planned)*
-- Power BI *(planned)*
+- DuckDB *(coming next)*
+- SQL *(coming next)*
+- Power BI *(coming next)*
 
 ---
 
-# Project Progress
+# Current Status
 
-- ✅ Bronze Layer
-- ✅ Bronze Profiling
-- ✅ Silver Layer
-- ✅ Silver Profiling
-- ⬜ Gold Layer
-- ⬜ Gold Profiling
-- ⬜ DuckDB Warehouse
-- ⬜ SQL Analytics
-- ⬜ Power BI Dashboard
+## ✅ Complete
+
+- Dataset ingestion
+- Bronze layer
+- Bronze profiling
+- Silver transformation
+- Silver profiling
+- Gold transformation
+- Gold profiling
+- Documentation
+- Git version control
+
+## 🚧 In Progress
+
+- DuckDB loading
+- SQL analytics
+- Power BI dashboard
 
 ---
 
-# Future Enhancements
+# Future Dashboard
 
-- Gold analytics layer
-- DuckDB warehouse
-- SQL reporting queries
-- Interactive Power BI dashboard
-- Additional data quality validation
+The final Power BI dashboard will function as a Steam game discovery tool.
+
+Users will be able to filter games by attributes such as:
+
+- Platform (Windows / Mac / Linux)
+- Price Bucket
+- Review Category
+- Genres
+- Categories
+- Release Year
+- Release Decade
+- Estimated Owners
+- Playtime Bucket
+- Metacritic Availability
+- Achievements
+
+The goal is to make discovering games as intuitive as querying an analytics model.
+
+---
+
+# Author
+
+**Brian Krikorian**
+
+Built as a portfolio project to demonstrate analytics engineering, ETL development, data validation, and business intelligence workflows.
