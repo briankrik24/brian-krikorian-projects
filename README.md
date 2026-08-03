@@ -8,7 +8,9 @@ Analytics & Business Intelligence professional with experience building end-to-e
 
 An end-to-end analytics platform built using public Steam data to demonstrate a modern analytics workflow. The project ingests game data through APIs, performs ETL and data modeling, and delivers interactive dashboards for analyzing game market trends.
 
-**Tools & Skills:** Python, SQL, ETL, Data Modeling, APIs, DuckDB, Power BI, Git
+**Tools & Skills:** Python, SQL, ETL, APIs, Data Modeling, DuckDB, Power BI, Git
+
+➡️ **[View Project](steam-analytics-platform/)**
 
 ---
 
@@ -18,7 +20,7 @@ Designed and developed a machine learning solution to consolidate approximately 
 
 **Tools & Skills:** Python, Machine Learning, Data Cleaning, Data Transformation, Power BI
 
-[View Project Report](Graduate-Capstone.pdf)
+➡️ **[View Project](Graduate-Capstone/)**
 
 ---
 
@@ -28,7 +30,7 @@ Performed statistical analysis on **500+ NBA players** to evaluate player value 
 
 **Tools & Skills:** Python, R, Statistical Modeling, Predictive Analytics, Data Visualization
 
-[View Project Report](Undergraduate-Thesis.pdf)
+➡️ **[View Project](Undergraduate-Thesis/)**
 
 ---
 
@@ -41,7 +43,3 @@ Performed statistical analysis on **500+ NBA players** to evaluate player value 
 **Data Engineering:** ETL Pipelines, APIs, Data Modeling, Lakehouses, Semantic Models
 
 **Other:** Git, Azure DevOps, Power Automate, ServiceNow
-
----
-
-Thank you for taking the time to review my work. I'm always interested in opportunities involving analytics, business intelligence, data engineering, and data science.
