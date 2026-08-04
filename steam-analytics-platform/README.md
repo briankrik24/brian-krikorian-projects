@@ -1,8 +1,10 @@
 # 🎮 Steam Analytics Platform
 
+![Market Analysis Dashboard](images/market_analysis.png)
+
 An end-to-end analytics engineering project that transforms raw Steam game data into an analytics-ready dataset using a Medallion Architecture (Bronze → Silver → Gold), with automated profiling, data validation, and business-focused transformations.
 
-The finished dataset is designed for SQL analytics and an interactive Power BI game discovery dashboard.
+The finished dataset powers SQL analytics and a three-page interactive Power BI dashboard for game discovery, market analysis, and revenue exploration.
 
 ---
 
@@ -17,9 +19,20 @@ The finished dataset is designed for SQL analytics and an interactive Power BI g
 
 ---
 
+## Project Highlights
+
+- 📊 Built an interactive Power BI dashboard analyzing nearly 90,000 Steam games
+- 🧹 Cleaned and transformed raw Steam datasets using Power Query
+- 🧩 Designed a star schema with supporting dimension tables for genres and platforms
+- 📈 Developed custom DAX measures and calculated columns
+- 🎮 Implemented interactive search, slicers, KPIs, and drill-down analytics
+- 💰 Estimated game revenue using SteamSpy ownership ranges and pricing data
+
+---
+
 ## Project Architecture
 
-```
+```text
 Steam Dataset
       │
       ▼
@@ -45,9 +58,9 @@ Power BI Dashboard
 
 ---
 
-# Repository Structure
+## Repository Structure
 
-```
+```text
 steam-analytics-platform/
 │
 ├── data/
@@ -81,42 +94,42 @@ steam-analytics-platform/
 
 ---
 
-# ETL Pipeline
+## ETL Pipeline
 
-## Bronze Layer
+### Bronze Layer
 
-Purpose:
+**Purpose**
 
 - Preserve the raw source dataset
 - Perform initial profiling
 - Detect missing values, duplicates, and schema issues
 
-Outputs:
+**Outputs**
 
 - Bronze dataset
 - Bronze profiling report
 
 ---
 
-## Silver Layer
+### Silver Layer
 
-Purpose:
+**Purpose**
 
 - Select required columns
 - Rename fields for consistency
 - Standardize data types
 - Validate cleaned data
 
-Outputs:
+**Outputs**
 
 - Clean analytics dataset
 - Silver profiling report
 
 ---
 
-## Gold Layer
+### Gold Layer
 
-Purpose:
+**Purpose**
 
 Create business-friendly features for analytics and reporting.
 
@@ -135,69 +148,117 @@ Derived columns include:
 - Has Metacritic
 - Has Achievements
 
-Outputs:
+**Outputs**
 
 - Analytics-ready dataset
 - Gold profiling report
 
 ---
 
-# Technologies
+## Technologies
 
 - Python
 - Pandas
-- DuckDB *(coming next)*
-- SQL *(coming next)*
-- Power BI *(coming next)*
+- DuckDB
+- SQL
+- Power BI
+  - Power Query
+  - DAX
+  - Data Modeling
+  - Interactive Visualizations
+  - KPI Cards
+  - Slicers
+  - Page Navigation
+- Git
+- GitHub
 
 ---
 
-# Current Status
+## Dashboard
 
-## ✅ Complete
+The Power BI report consists of three interactive pages designed for different analytical workflows.
 
-- Dataset ingestion
-- Bronze layer
-- Bronze profiling
-- Silver transformation
-- Silver profiling
-- Gold transformation
-- Gold profiling
-- Documentation
-- Git version control
+### Game Search
 
-## 🚧 In Progress
+The Game Search dashboard allows users to explore nearly 90,000 Steam titles through interactive filtering and text search.
 
-- DuckDB loading
-- SQL analytics
-- Power BI dashboard
+Features include:
 
----
+- Search by game title
+- Filter by genre
+- Filter by platform
+- Filter by pricing tier
+- Filter by release decade
+- Filter by review category
 
-# Future Dashboard
+Dynamic KPI cards update automatically to display:
 
-The final Power BI dashboard will function as a Steam game discovery tool.
+- Games Found
+- Average Review Score
+- Average Price
+- Average Playtime
+- Average Metacritic Score
 
-Users will be able to filter games by attributes such as:
+#### Default View
 
-- Platform (Windows / Mac / Linux)
-- Price Bucket
-- Review Category
-- Genres
-- Categories
-- Release Year
-- Release Decade
-- Estimated Owners
-- Playtime Bucket
-- Metacritic Availability
-- Achievements
+![Game Search Dashboard](images/game_search_main.png)
 
-The goal is to make discovering games as intuitive as querying an analytics model.
+#### Example: Filtering by Platform, Price Tier, and Genre
+
+![Game Search Filters](images/game_search_slicers.png)
+
+#### Example: Searching for a Specific Game
+
+![Game Search Text Search](images/game_search_input.png)
 
 ---
 
-# Author
+### Market Analysis
+
+The Market Analysis dashboard provides an overview of the Steam marketplace through interactive visualizations.
+
+Highlights include:
+
+- Steam releases over time
+- Platform availability
+- Review distribution
+- Games by price tier
+- Average review score by price tier
+- Most common genres
+
+![Market Analysis](images/market_analysis.png)
+
+---
+
+### Revenue Drivers
+
+The Revenue Drivers dashboard explores which characteristics are associated with commercial success.
+
+Estimated revenue is **estimated using** the midpoint of SteamSpy ownership estimates multiplied by current game price.
+
+Visualizations include:
+
+- Highest revenue genres
+- Top revenue-generating games
+- Estimated average revenue by review category
+- Estimated median revenue by pricing tier
+
+![Revenue Drivers](images/revenue_drivers.png)
+
+---
+
+## Key Insights
+
+- Windows is supported by roughly three-quarters of Steam titles.
+- Premium-priced games have the highest estimated median revenue.
+- Higher review scores strongly correlate with higher estimated revenue.
+- Indie is the most common genre, while Massively Multiplayer titles generate the highest estimated average revenue.
+- Steam releases accelerated dramatically after 2014, highlighting the platform's rapid growth.
+
+---
+
+## Author
 
 **Brian Krikorian**
 
-Built as a portfolio project to demonstrate analytics engineering, ETL development, data validation, and business intelligence workflows.
+Built as a portfolio project showcasing analytics engineering, ETL pipeline development, data modeling, and interactive business intelligence using Power BI.
