@@ -36,7 +36,7 @@ Designed and developed a machine learning solution to consolidate approximately 
 
 **Tools & Skills**
 
-Python • Machine Learning • Data Cleaning • Power BI
+Python • Machine Learning • Data Cleaning • R
 
 ➡️ **[View Project](Graduate-Capstone/)**
 
